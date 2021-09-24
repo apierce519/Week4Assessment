@@ -5,6 +5,8 @@
  */
 package model;
 
+import java.text.DecimalFormat;
+
 /**
  * @author Andrew Pierce - ajpierce1
  */
@@ -14,6 +16,7 @@ public class TempConverter {
 	private double tempToBeConverted;
 	private double fahrenheitTemp;
 	private double celsiusTemp;
+	DecimalFormat df = new DecimalFormat("###.#");
 
 	/**
 	 * 
@@ -86,10 +89,10 @@ public class TempConverter {
 	}
 
 	/**
-	 * @param fahrenheitTemp the fahrenheitTemp to set
+	 * @param d the fahrenheitTemp to set
 	 */
-	public void setFahrenheitTemp(double fahrenheitTemp) {
-		this.fahrenheitTemp = fahrenheitTemp;
+	public void setFahrenheitTemp(double d) {
+		this.fahrenheitTemp = d;
 	}
 
 	/**
@@ -101,6 +104,6 @@ public class TempConverter {
 
 	@Override
 	public String toString() {
-		return this.getCelsiusTemp() + " degrees Celsius equals " + this.getFahrenheitTemp() + " degrees Fahrenheit!";
+		return df.format(this.getCelsiusTemp()) + " degrees Celsius equals " + df.format(this.getFahrenheitTemp()) + " degrees Fahrenheit!";
 	}
 }
